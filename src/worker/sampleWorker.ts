@@ -8,6 +8,7 @@ export default function sampleWorker(name:string){
         async (job:Job)=>{
             if(job.name === "SampleJob"){
                 const sampleJob = new SampleJob(job.data)
+                console.log(sampleJob)
                 sampleJob.handle(job)
                 return true;
             }           

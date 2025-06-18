@@ -1,5 +1,6 @@
 import { Job } from "bullmq";
 import Ijob from "../types/jobType";
+import sendEmail from "../mail/sendEmail";
 
 
 export default class EmailJob implements Ijob{
@@ -11,11 +12,16 @@ export default class EmailJob implements Ijob{
         this.name = this.constructor.name
     }
 
-    handle =  (job: Job) => {
-        console.log("Inside Email Job Handler")
+    handle =  async (job: Job) => {
+        console.log("Sending email to ,",job.data.to)
+        await sendEmail({
+            to:job.data.to,
+            subject:job.data.subject,
+            html:`<p>${job.data.body}</p>`
+        })
     };
 
     reject =  (job: Job) => {
-        console.log("Job Failed")
+       console.error("Failed to send email:", job.id);
     };
 }

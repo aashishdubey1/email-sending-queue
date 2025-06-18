@@ -7,7 +7,7 @@ dotenv.config();
 const redisConfig = {
     port:serverConfig.REDIS_PORT,
     host:serverConfig.REDIS_URL,
-    maxRetriesPerRequest:3
+    maxRetriesPerRequest:null
 }
 
 const redisConnection = new Redis(redisConfig)

@@ -17,7 +17,7 @@ export default class EmailJob implements Ijob{
         await sendEmail({
             to:job.data.to,
             subject:job.data.subject,
-            html:`<p>${job.data.body}</p>`
+            html:`<p>${job.data.body}</p>`  
         })
     };
 

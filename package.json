@@ -18,6 +18,7 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
+    "@bull-board/express": "^6.10.1",
     "@types/express": "^5.0.3",
     "@types/ioredis": "^5.0.0",
     "@types/nodemailer": "^6.4.17",
